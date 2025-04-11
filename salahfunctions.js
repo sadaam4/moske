@@ -1,5 +1,5 @@
-﻿var standardWindowWidth = 2000;
-var standardWindowHight = 1250;
+﻿var standardWindowWidth = 1680;
+var standardWindowHight = 1050;
 var prayertimes;
 var nextSalahDate;
 var lastSalahDate;
@@ -10,13 +10,13 @@ var fredagsSalah = localStorage["fredagsSalah"];
 
 function drawTop() {
 	//  document.getElementById('top').style.fontSize= 40 *  window.innerWidth / standardWindowWidth+"px";
-	document.getElementById('top').style.fontSize = "30px";
+	document.getElementById('top').style.fontSize = "40px";
 	document.getElementById('top').innerHTML =
 
 	' <table style="width: 100%;"><tr>' +
 	//'<div class="table1"  >'+writeIslamicDate(-1)+'</div>'+
 	'<td  style="width: 40%; text-align: left;">' + getDateString() + '</td>'
-	+ '<td style="width: 30%; text-align: center;">VEJLE MOSKE</td>'
+			+ '<td style="width: 20%; text-align: center; font-size: 40px;">VEJLE MOSKE</td>'
 			+ '<td  style="width: 40%; text-align: right;" >'
 			+ writeIslamicDate(hijriAdjustment) + '</td>' + '</tr></table>  ';
 
