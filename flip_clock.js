@@ -2,8 +2,8 @@
 var clock_face = null,
 	clock_ctx = null;
 
-	IMG_HEIGHT = 233,
-	IMG_WIDTH = 145,
+	IMG_HEIGHT = 200,
+	IMG_WIDTH = 100,
 	
 	DIGIT_HEIGHT = IMG_HEIGHT,
 	DIGIT_WIDTH = 145,
@@ -53,7 +53,7 @@ function drawHHMMDigit(time, unit) {
 			
 		}
 		clock_ctx.font = 100 +"px Arial";
-		clock_ctx.fillText(":",IMG_WIDTH*2 -3  ,DIGIT_HEIGHT/2 +20);
+		clock_ctx.fillText(":",IMG_WIDTH*3 -4  ,DIGIT_HEIGHT/2 +20);
 		clock_ctx.restore();
 	}
 	clock_ctx.drawImage(clock_face, time.substr(unit,1) * DIGIT_WIDTH, 0, DIGIT_WIDTH, DIGIT_HEIGHT, xPositions[unit], 0, DIGIT_WIDTH, DIGIT_HEIGHT);

@@ -1,7 +1,7 @@
 // Global variable
 var clock_face_fajr = null;
 
-var IMG_HEIGHT_SALAH = 137, IMG_WIDTH_SALAH = 84, DIGIT_HEIGHT_SALAH = IMG_HEIGHT_SALAH, DIGIT_WIDTH_SALAH = 84, xPositions_Salah = null;
+var IMG_HEIGHT_SALAH = 137, IMG_WIDTH_SALAH = 44, DIGIT_HEIGHT_SALAH = IMG_HEIGHT_SALAH, DIGIT_WIDTH_SALAH = 84, xPositions_Salah = null;
 
 function pad2(number) {
 	return (number < 10 ? '0' : '') + number;
@@ -54,7 +54,7 @@ function drawSalah(canvas, prayerNumber, salahText, minutesLeft) {
 		}
 	}
 	
-	ctx_fajr.font = 'Bold 56px Arial';
+	ctx_fajr.font = 'Bold 50px Arial';
 	ctx_fajr.fillText(salahText, 10, DIGIT_HEIGHT_SALAH + 60);
 
 	

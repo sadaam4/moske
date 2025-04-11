@@ -1,19 +1,10 @@
 ﻿// Global variable
-var xPositions_Salah;
 var clock_face_fajr = null;
 
 var IMG_HEIGHT_SALAH = 137, IMG_WIDTH_SALAH = 84, DIGIT_HEIGHT_SALAH = IMG_HEIGHT_SALAH, DIGIT_WIDTH_SALAH = 84, xPositions_Salah = null;
 
 function pad2(number) {
 	return (number < 10 ? '0' : '') + number;
-}
-function initGlobals() {
-	var iHHMMGap = 25;
-
-	xPositions_Salah = Array(DIGIT_WIDTH_SALAH * 0, DIGIT_WIDTH_SALAH * 1,
-			(DIGIT_WIDTH_SALAH * 2) + iHHMMGap, (DIGIT_WIDTH_SALAH * 3)
-					+ iHHMMGap);
-
 }
 
 function drawSalah(canvas, prayerNumber, salahText, minutesLeft) {
@@ -77,8 +68,8 @@ var nextSalahNumber = findNextSalah();
 		}
 	}
 	
-	ctx_fajr.font = 'Bold 56px Arial';
-	ctx_fajr.fillText(salahText, 10, DIGIT_HEIGHT_SALAH + 60);
+	ctx_fajr.font = 'Bold 50px Arial';
+	ctx_fajr.fillText(salahText, 10, DIGIT_HEIGHT_SALAH + 50);
 
 	
 	//ctx_fajr.lineWidth = 1;
@@ -103,30 +94,34 @@ var nextSalahNumber = findNextSalah();
 	
 }
 
+function initGlobals() {
+	var iHHMMGap = 25;
+
+	xPositions_Salah = Array(DIGIT_WIDTH_SALAH * 0, DIGIT_WIDTH_SALAH * 1,
+			(DIGIT_WIDTH_SALAH * 2) + iHHMMGap, (DIGIT_WIDTH_SALAH * 3)
+					+ iHHMMGap);
+
+}
 
 function initSalah(salahName, prayerNumber, minutesLeft, salahText) {
-    if (!xPositions_Salah) initGlobals();
+	// Grab the clock element
 
-    var canvas = document.getElementById(salahName);
+	var canvas = document.getElementById(salahName);
 
-    if (canvas.getContext('2d')) {
-        ctx_fajr = canvas.getContext('2d');
+	// Canvas supported?
+	if (canvas.getContext('2d')) {
+		ctx_fajr = canvas.getContext('2d');
 
-        clock_face_fajr = new Image();
-        clock_face_fajr.src = 'digits_32.png';
-        clock_face_fajr.onload = function () {
-            console.log("✔️ صورة digits_ur1.png تم تحميلها بنجاح");
-            setInterval(function () {
-                drawSalah(canvas, prayerNumber, salahText, minutesLeft);
-            }, 1000);
-        };
+		// Load the clock face image
+		clock_face_fajr = new Image();
+		clock_face_fajr.src = 'digits_32.png';
+		clock_face_fajr.onload = setInterval(function() {
+			drawSalah(canvas, prayerNumber, salahText, minutesLeft);
+		}, 1000);
 
-        clock_face_fajr.onerror = function () {
-            console.error("❌ فشل في تحميل صورة digits_ur1.png");
-        };
-    } else {
-        alert("Canvas not supported!");
-    }
+	} else {
+		alert("Canvas not supported!");
+	}
 }
 
 function stillInIqamah(salahDate, minutesParam) {
