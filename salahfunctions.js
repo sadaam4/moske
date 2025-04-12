@@ -13,13 +13,13 @@ function drawTop() {
 	document.getElementById('top').style.fontSize = "30px";
 	document.getElementById('top').innerHTML =
 
-	' <table style="width: 100%;"><tr>' +
-	//'<div class="table1"  >'+writeIslamicDate(-1)+'</div>'+
-	'<td  style="width: 40%; text-align: left;">' + getDateString() + '</td>'
-	+ '<td style="width: 30%; text-align: center;">VEJLE MOSKE</td>'
-			+ '<td  style="width: 40%; text-align: right;" >'
-			+ writeIslamicDate(hijriAdjustment) + '</td>' + '</tr></table>  ';
-
+	'<table style="width: 100%;"><tr>' +
+		'<td style="width: 40%; text-align: left;">' + getDateString() + '</td>' +
+		'<td style="width: 20%; text-align: center;">' +
+		'<img src="vejle_moske_logo.png" alt="Vejle Moske Logo" width="300" height="150">' +
+		'</td>' +
+		'<td style="width: 40%; text-align: right;">' + writeIslamicDate(hijriAdjustment) + '</td>' +
+		'</tr></table>';
 	setTimeout(function() {
 		drawTop();
 	}, 1000 * 60);
